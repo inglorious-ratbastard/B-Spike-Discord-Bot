@@ -8,7 +8,7 @@ module.exports = {
             return; 
         }   
 
-    msg.channel.send(`*${msg.author} has initialized a new game of B-Spike!*`);  
+    msg.channel.send(`*${msg.author} has initialized a new game of B-Spike!*`);   
     
   msg.guild.channels.create('B-Spike! Game Channels', {
         type: 'category',
@@ -23,12 +23,16 @@ module.exports = {
             type: 'text',
             parent: cat,
             permissionOverwrites: [{
-                    id: msg.guild.id,
-                    //deny: ['MANAGE_MESSAGES'],
-                    deny: ['VIEW_CHANNEL']
-                }]
+                   id: msg.guild.id,
+                   //deny: ['MANAGE_MESSAGES'],
+                   deny: ['VIEW_CHANNEL']
+                },
+            {
+               id: msg.guild.roles.cache.get(process.env.roleID),
+               allow: ['VIEW_CHANNEL'],
+            }]
             })
-             
+          
       })
       .catch(console.error);
   

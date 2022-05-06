@@ -34,9 +34,10 @@ bot.on("message", msg => {
 
   let args = msg.content.substring(PREFIX.length).split(" ");
   
-  var spikeStart = false; 
+  let spikeStart = false; 
+  let startLog = require('./startlog.json');
   let playerId = require('./userlog.json');
-
+ 
   var Player = {
       id: msg.member.user.id,
       tag: msg.member.user.tag,
@@ -46,20 +47,22 @@ bot.on("message", msg => {
    /* Add Gameplay Timer on Start */
     if(args.includes("start")){
       spikeStart = !false;
-      playerId.push(Player); 
+      startLog.push(spikeStart);
+      startLog.push(Player);
+      // playerId.push(Player); 
       console.log("\nGame Initiated: " + spikeStart);
-      console.log(playerId); return;  
+      // console.log(playerId); 
+      console.log(startLog);
+      return; 
     }
     if(args.includes("join")){
       if(spikeStart == !false){
-         playerId.push(Player);
-         console.log(playerId);
-      } else {
-        msg.channel.send("Please start a game first."); 
-        return;
-      } 
+         startLog.push(Player);
+         console.log(startLog);
+         // playerId.push(Player);
+         // console.log(playerId); 
+       } 
     }  
-    
   }
 
   switch(args[0]){
@@ -83,7 +86,7 @@ bot.on("message", msg => {
 
     case "join":
       gameStatus(msg, args);
-      bot.commands.get('join').execute(msg, args);
+      bot.commands.get('join').execute(msg, args, spikeStart);
       break;
 
     case "invite":
