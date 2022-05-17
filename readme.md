@@ -32,8 +32,7 @@ ___
 B-Spike Discord Bot was created by [Javier Yzaguirre](https://github.com/inglorious-ratbastard) and is considered free and open source to use as reference for those wanting to create their own bot or contribute to this project. 
 ___
 #### **Reporting Bugs or Issues:**
-If you would like to report a Bug or Issue in this project feel free to do so under the Issues tab or contact me directly about any major concerns. 
+If you would like to report a **Bug** or **Issue** in this project feel free to do so under the **Issues** tab or contact me directly about any major concerns. Ideas for new features are also welcomed. Please address these by matters by sending a **Pull Request** as they will be reviewed for consideration. 
 ___
-#### **External Resources:**
 [Repl.it](https://repl.it/)<br>
 [UptimeRobot](https://uptimerobot.com/)
